@@ -17,37 +17,50 @@
 
 /* Header de la pagina que contiene menu, titulo y logo de la pagina */
 header {
+  height: 110px;
   background-color: var(--Primary_color);
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
 }
 
 /* Clase que le da estilos a la imagen perfil del usuario en la pagina */
 .header__perfil {
   width: 40px;
-  position: absolute;
-  left: 50px;
-  margin-top: 30px;
+  /* position: absolute; */
+  /* left: 50px; */
+  /* margin-top: 30px; */
+  /* background-color: red; */
 }
 
 /* Clase que le da estilos al titulo principal de la pagina */
 .header__titulo {
   font-family: var(--fountain_primary);
   font-size: 28px;
-  display: inline-block;
-  margin: 15px auto;
+  /* display: inline-block; */
+  /* margin: 15px auto; */
+  /* background-color: blue; */
+  
 }
 
 /* Clase del logo de la pagina  */
 .header__logo {
   width: 110px;
-  position: absolute;
-  top: 8px;
+  /* position: absolute; */
+  /* top: 8px; */
+  /* background-color: #164E1B; */
 }
 
 /* Menu de navegcion nav */
 nav {
   background-color: var(--Secondary_color);
-  text-align: center;
+  height: 8vh;
+  /* text-align: center; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 /* Icono de menu hamburguesa que no aparece en la pagina normal */
@@ -59,9 +72,9 @@ nav {
 .button__navigation {
   width: 17.5vw;
   height: 5vh;
-  margin: 10px auto;
-  padding: 2px;
-  display: inline-block;
+  /* margin: 10px auto; */
+  /* padding: 2px; */
+  /* display: inline-block; */
   font-size: 14px;
   font-weight: bold;
   background-color: var(--Room_color);
@@ -84,15 +97,31 @@ nav {
   margin: 10px;
 }
 
+.section__general{
+  height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+.section_imagen_individual{
+  /* background-color: #000000; */
+  display: flex;
+  align-items: center;
+}
 /* Clase que le da estilos a todas las cajas que se encuentran dentro de la clase section */
 .section__card {
-  display: inline-block;
+  /* display: inline-block; */
   width: 18vw;
-  height: 45vh;
+  height: 50vh;
   background-color: var(--Primary_color);
-  padding: 4px;
-  margin: 12px 18px;
-  text-align: center;
+  /* padding: 4px; */
+  /* margin: 12px 18px; */
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 /* Clase que le da estilos a todos los titulos que se encuentran dentro de las card */
@@ -120,8 +149,8 @@ nav {
 .section__button {
   width: 80px;
   height: 30px;
-  margin: 20px auto;
-  display: inline-block;
+  /* margin: 20px auto; */
+  /* display: inline-block; */
   background-color: var(--Tertiary_color);
   color: black;
   border: none;
@@ -135,11 +164,19 @@ nav {
 /* Clase que le da estilos al carrrito de compras de la pagina */
 .section__carrito {
   width: 30px;
-  position: absolute;
-  top: 250px;
-  left: 40px;
+  height: 30px;
+  /* position: absolute; */
+  /* top: 250px; */
+  /* left: 40px; */
+  
 }
-
+.carrito{
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: flex-start;
+  order: -1;
+  
+}
 /* Pseudoclase que cambia el color de los botones de section  */
 .section__button:hover {
   background-color: var(--Room_color);
@@ -155,8 +192,20 @@ nav {
 
 /* Clase que le da estilos al pie de la pagina */
 .footer {
+  height: 60px;
   background-color: var(--Room_color);
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  
+}
+.footer__redes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
 }
 
 /* Clase que le da estilos al texto descriptivo del pie de la pagina */
@@ -165,22 +214,19 @@ nav {
   font-size: 15px;
   font-weight: bold;
   color: var(--Tertiary_color);
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 /* Clase que le da estilos a las imagenes dentro del pie de pagina  */
 .footer__img {
-  width: 20px;
-  margin: 10px auto;
+  width: 30px;
+  /* margin: 10px auto; */
 }
 
 /* Media queri para pantallas pequeñas  */
 @media (max-width:1024px) {
-
   .header__perfil {
     width: 30px;
-    left: 20px;
-    margin-top: 30px;
   }
 
   .button__navigation {
@@ -189,12 +235,6 @@ nav {
 
   .section__recomendaciones {
     font-size: 18PX;
-    margin: 10px;
-  }
-
-  .section__card {
-    display: inline-block;
-    padding: 3px;
   }
 
   .section__title {
@@ -216,9 +256,6 @@ nav {
     font-size: 13px;
   }
 
-  .section__carrito {
-    left: 30px;
-  }
 
   .section__button {
     font-size: 13px;
@@ -228,6 +265,10 @@ nav {
 
 /* Media queri para tablets */
 @media (max-width: 992px) {
+  .section_imagen_individual{
+    display: flex;
+    align-items: flex-start;
+  }
 
   .header__titulo {
     font-size: 20px;
@@ -243,7 +284,6 @@ nav {
 
   .section__card {
     width: 23vw;
-    margin: 20px;
   }
 
   .section__text {
@@ -279,25 +319,35 @@ nav {
   }
 
   .menu-icono {
-    display: block;
     font-size: 28px;
     color: black;
-    margin: 10px;
     cursor: pointer;
   }
 
   .section__card {
     width: 200px;
-    height: 350px;
-    margin: 10px 90px;
   }
 
   .section__img {
     width: 90px;
   }
-
-  .section__carrito {
-    top: 90px;
+  .section_imagen_individual{
+    display: flex;
+    align-items: flex-start;
   }
 
+}
+
+@media (max-width: 480px){
+  .header__titulo{
+    text-align: center;
+  }
+  .section__general{
+    height: 1600px;
+  }
+  .section__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 }
