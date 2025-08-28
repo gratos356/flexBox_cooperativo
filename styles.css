@@ -218,15 +218,15 @@ nav {
 @media (max-width: 768px) {
   .header__titulo { font-size: 15px; }
   .header__logo { width: 70px; }
-  nav { display: inline-block; width: 100%; }
+  /* nav { display: inline-block; width: 100%; } */
   /* Oculta botones y aparece menú hamburguesa */
-  .button__navigation:nth-child(1),
+  /* .button__navigation:nth-child(1),
   .button__navigation:nth-child(2),
   .button__navigation:nth-child(3),
   .button__navigation:nth-child(4),
   .button__navigation:nth-child(5) {
     display: none;
-  }
+  } */
   .menu-icono {
     font-size: 28px;
     color: black;
@@ -238,6 +238,13 @@ nav {
 }
 
 @media (max-width: 480px){
+  .button__navigation:nth-child(1),
+  .button__navigation:nth-child(2),
+  .button__navigation:nth-child(3),
+  .button__navigation:nth-child(4),
+  .button__navigation:nth-child(5) {
+    display: none;
+  }
   .header__titulo { text-align: center; }
   .section__general { 
     height: 800px; 
@@ -247,7 +254,7 @@ nav {
     justify-content: space-around;
   }
 }
-@media(max-width: 320px){
+@media(max-width: 425px){
   .section__general{
     height: 1600px;
   }
