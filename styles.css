@@ -1,11 +1,11 @@
-/*Se restablecen valores predeterminados de los margenes y rellenos de los elementos*/
+/* Se restablecen valores predeterminados */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* custom property que define colores de la pagina y tipos de fuente */
+/* Variables de colores y fuentes */
 :root {
   --Primary_color: #84CC16;
   --Secondary_color: #A3E635;
@@ -15,66 +15,50 @@
   --fountain: "Alata", sans-serif;
 }
 
-/* Header de la pagina que contiene menu, titulo y logo de la pagina */
+/* ================= HEADER =================
+    Antes: centrado con text-align y posiciones absolutas.
+    Ahora: se usa FLEXBOX para distribuir logo, título y perfil
+    en fila, con espacios iguales y centrados verticalmente. */
 header {
   height: 110px;
   background-color: var(--Primary_color);
-  /* text-align: center; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 }
 
-/* Clase que le da estilos a la imagen perfil del usuario en la pagina */
 .header__perfil {
-  width: 40px;
-  /* position: absolute; */
-  /* left: 50px; */
-  /* margin-top: 30px; */
-  /* background-color: red; */
+  width: 40px; /* Ya no usa position:absolute, ahora fluye en flex */
 }
 
-/* Clase que le da estilos al titulo principal de la pagina */
 .header__titulo {
   font-family: var(--fountain_primary);
-  font-size: 28px;
-  /* display: inline-block; */
-  /* margin: 15px auto; */
-  /* background-color: blue; */
-  
+  font-size: 28px; /* Eliminado inline-block, ahora flex se encarga */
 }
 
-/* Clase del logo de la pagina  */
 .header__logo {
-  width: 110px;
-  /* position: absolute; */
-  /* top: 8px; */
-  /* background-color: #164E1B; */
+  width: 110px; /* Quitado position:absolute */
 }
 
-/* Menu de navegcion nav */
+/* ================= NAV =================
+    Antes: centrado con text-align e inline-block.
+    Ahora: FLEXBOX para repartir botones uniformemente
+    y centrar verticalmente. */
 nav {
   background-color: var(--Secondary_color);
   height: 8vh;
-  /* text-align: center; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-/* Icono de menu hamburguesa que no aparece en la pagina normal */
 .menu-icono {
   display: none;
 }
 
-/* Clase de los botones de navegacion que se encuentran dentro del nav */
 .button__navigation {
   width: 17.5vw;
   height: 5vh;
-  /* margin: 10px auto; */
-  /* padding: 2px; */
-  /* display: inline-block; */
   font-size: 14px;
   font-weight: bold;
   background-color: var(--Room_color);
@@ -83,55 +67,50 @@ nav {
   transition: 0.2s;
 }
 
-/* Clase principal del contenedor principal */
+/* ================= SECCIÓN PRINCIPAL =================
+    Antes: cards con inline-block, márgenes y padding fijos.
+    Ahora: FLEXBOX con flex-wrap y justificación dinámica.
+    Las cards usan flex interno para organizar contenido en columna. */
 .section {
   background-color: var(--Tertiary_color);
   text-align: center;
   display: inline-block;
 }
 
-/* Clase que le da estilos al titulo de la clase section */
 .section__recomendaciones {
   font-family: var(--fountain);
   font-size: 30px;
   margin: 10px;
 }
 
-.section__general{
+.section__general {
   height: 600px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Permite que las cards bajen a otra fila */
   justify-content: space-around;
-
 }
-.section_imagen_individual{
-  /* background-color: #000000; */
+
+.section_imagen_individual {
   display: flex;
   align-items: center;
 }
-/* Clase que le da estilos a todas las cajas que se encuentran dentro de la clase section */
+
 .section__card {
-  /* display: inline-block; */
   width: 18vw;
   height: 50vh;
   background-color: var(--Primary_color);
-  /* padding: 4px; */
-  /* margin: 12px 18px; */
-  /* text-align: center; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  display: flex; /* Cards ahora son contenedores flexibles */
+  flex-direction: column; /* Organiza elementos en columna */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: space-evenly; /* Espaciado uniforme vertical */
 }
 
-/* Clase que le da estilos a todos los titulos que se encuentran dentro de las card */
 .section__title {
   margin-top: 8px;
   font-family: var(--fountain);
   font-size: 18px;
 }
 
-/* Clase que le da estilos a todos las imagenes que se encuentran dentro de las card */
 .section__img {
   display: inline-block;
   width: 10vw;
@@ -139,18 +118,14 @@ nav {
   margin: 5px auto;
 }
 
-/* Clase que le da estilos a todos los textos descriptivos que se encuentran dentro de las card */
 .section__text {
   font-family: var(--fountain);
   font-size: 16px;
 }
 
-/* Clase que le da estilos a todos los botones que se encuentran dentro de las card */
 .section__button {
   width: 80px;
   height: 30px;
-  /* margin: 20px auto; */
-  /* display: inline-block; */
   background-color: var(--Tertiary_color);
   color: black;
   border: none;
@@ -161,155 +136,90 @@ nav {
   transition: 0.5s;
 }
 
-/* Clase que le da estilos al carrrito de compras de la pagina */
+/* ================= CARRITO =================
+    Antes: position:absolute con top y left fijos.
+    Ahora: carrito integrado con flex, se puede reordenar
+    sin romper la responsividad. */
 .section__carrito {
   width: 30px;
   height: 30px;
-  /* position: absolute; */
-  /* top: 250px; */
-  /* left: 40px; */
-  
 }
-.carrito{
-  /* background-color: aqua; */
+.carrito {
   display: flex;
   justify-content: flex-start;
-  order: -1;
-  
+  order: -1; /* Permite cambiar posición en el flujo */
 }
-/* Pseudoclase que cambia el color de los botones de section  */
+
+/* Hover */
 .section__button:hover {
   background-color: var(--Room_color);
   color: var(--Secondary_color);
 }
-
-/* Pseudoclase que cambia el color de los botones del menu de navegacion */
 .button--primary:hover {
   background-color: var(--Secondary_color);
   border: 1px solid var(--Room_color);
   color: var(--Room_color);
 }
 
-/* Clase que le da estilos al pie de la pagina */
+/* ================= FOOTER =================
+    Antes: centrado con text-align.
+    Ahora: FLEXBOX organiza contenido horizontalmente
+    y centra redes sociales y descripción. */
 .footer {
   height: 60px;
   background-color: var(--Room_color);
-  /* text-align: center; */
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  
 }
-.footer__redes{
+
+.footer__redes {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 10px;
+  gap: 10px; /* Separación entre íconos */
 }
 
-/* Clase que le da estilos al texto descriptivo del pie de la pagina */
 .footer__description {
   font-family: var(--fountain);
   font-size: 15px;
   font-weight: bold;
   color: var(--Tertiary_color);
-  /* display: inline-block; */
 }
 
-/* Clase que le da estilos a las imagenes dentro del pie de pagina  */
 .footer__img {
   width: 30px;
-  /* margin: 10px auto; */
 }
 
-/* Media queri para pantallas pequeñas  */
+/* ================= MEDIA QUERIES =================
+    Ajustan tamaños y disposición, apoyándose en flex.
+    Se reducen imágenes, textos y cards para mejor lectura. */
 @media (max-width:1024px) {
-  .header__perfil {
-    width: 30px;
-  }
-
-  .button__navigation {
-    width: 15vw;
-  }
-
-  .section__recomendaciones {
-    font-size: 18PX;
-  }
-
-  .section__title {
-    font-size: 20px;
-  }
-
-  .section__img {
-    width: 10vw;
-    height: 15vh;
-  }
-
-  .section__text {
-    font-size: 11px;
-  }
-
-  .section__button {
-    width: 90px;
-    height: 30px;
-    font-size: 13px;
-  }
-
-
-  .section__button {
-    font-size: 13px;
-  }
-
+  .header__perfil { width: 30px; }
+  .button__navigation { width: 15vw; }
+  .section__recomendaciones { font-size: 18PX; }
+  .section__title { font-size: 20px; }
+  .section__img { width: 10vw; height: 15vh; }
+  .section__text { font-size: 11px; }
+  .section__button { width: 90px; height: 30px; font-size: 13px; }
 }
 
-/* Media queri para tablets */
 @media (max-width: 992px) {
-  .section_imagen_individual{
-    display: flex;
-    align-items: flex-start;
-  }
-
-  .header__titulo {
-    font-size: 20px;
-  }
-
-  .header__logo {
-    width: 90px;
-  }
-
-  .button__navigation {
-    width: 18vw;
-  }
-
-  .section__card {
-    width: 23vw;
-  }
-
-  .section__text {
-    font-size: 12px;
-  }
-
-  .section__button {
-    font-size: 14px;
-  }
+  .section_imagen_individual { align-items: flex-start; }
+  .header__titulo { font-size: 20px; }
+  .header__logo { width: 90px; }
+  .button__navigation { width: 18vw; }
+  .section__card { width: 23vw; }
+  .section__text { font-size: 12px; }
+  .section__button { font-size: 14px; }
 }
 
-/* Media queri para dispositivos mobiles grandes  */
 @media (max-width: 768px) {
-  .header__titulo {
-    font-size: 15px;
-  }
-
-  .header__logo {
-    width: 70px;
-  }
-
-  nav {
-    display: inline-block;
-    width: 100%;
-  }
-
+  .header__titulo { font-size: 15px; }
+  .header__logo { width: 70px; }
+  nav { display: inline-block; width: 100%; }
+  /* Oculta botones y aparece menú hamburguesa */
   .button__navigation:nth-child(1),
   .button__navigation:nth-child(2),
   .button__navigation:nth-child(3),
@@ -317,37 +227,28 @@ nav {
   .button__navigation:nth-child(5) {
     display: none;
   }
-
   .menu-icono {
     font-size: 28px;
     color: black;
     cursor: pointer;
   }
-
-  .section__card {
-    width: 200px;
-  }
-
-  .section__img {
-    width: 90px;
-  }
-  .section_imagen_individual{
-    display: flex;
-    align-items: flex-start;
-  }
-
+  .section__card { width: 200px; }
+  .section__img { width: 90px; }
+  .section_imagen_individual { align-items: flex-start; }
 }
 
 @media (max-width: 480px){
-  .header__titulo{
-    text-align: center;
-  }
-  .section__general{
-    height: 1600px;
+  .header__titulo { text-align: center; }
+  .section__general { 
+    height: 800px; 
   }
   .section__card {
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
+  }
+}
+@media(max-width: 320px){
+  .section__general{
+    height: 1600px;
   }
 }
