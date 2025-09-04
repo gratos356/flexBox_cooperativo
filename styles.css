@@ -84,10 +84,12 @@ nav {
 }
 
 .section__general {
-  height: 600px;
+  /* height: 600px; */
   display: flex;
   flex-wrap: wrap; /* Permite que las cards bajen a otra fila */
   justify-content: space-around;
+  gap: 15px;
+  overflow: auto;
 }
 
 .section_imagen_individual {
